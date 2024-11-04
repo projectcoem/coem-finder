@@ -169,7 +169,7 @@ class CoemDB:
         if type_mode == "stories":
             results = self.vector_db_stories.query_vectors(query_vector=norm_embed, top_k=top_k)
             rows_data = [self.stories_metadata.iloc[i].to_dict() for i in results['ids']]
-            rows_json = json.dumps({"stories": rows_data, "poems": None}, indent=4)
+            rows_json = json.dumps({"stories": rows_data, "poems": None}, indent=4, ensure_ascii=False)
             return rows_json
 
         elif type_mode == "poems":
@@ -192,7 +192,7 @@ class CoemDB:
 
 
 
-            rows_json = json.dumps({"stories": None, "poems": rows_data}, indent=4)
+            rows_json = json.dumps({"stories": None, "poems": rows_data}, indent=4, ensure_ascii=False)
             return rows_json
 
         else:  # For "both" mode
@@ -214,7 +214,7 @@ class CoemDB:
               results_poems = self.vector_db_poems.query_vectors(query_vector=norm_embed, top_k=top_k)
               rows_data_poems = [self.poems_metadata.iloc[i].to_dict() for i in results_poems['ids']]
             rows_data_stories = [self.stories_metadata.iloc[i].to_dict() for i in results_stories['ids']]
-            rows_json = json.dumps({"stories": rows_data_stories, "poems": rows_data_poems}, indent=4)
+            rows_json = json.dumps({"stories": rows_data_stories, "poems": rows_data_poems}, indent=4, ensure_ascii=False)
             return rows_json
 
 
