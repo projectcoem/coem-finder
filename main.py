@@ -241,7 +241,7 @@ def main():
                       help="Specify the type of search: 'stories', 'poems', or 'both'. Default is 'both'.")
   parser.add_argument('--top_k', type=int, default=3, 
                       help="Number of top results to return. Default is 3.")
-  parser.add_argument('--texts', type=str, nargs='+',  default='Una ballena que se introduce en el mar y ocurren misterios incomprendidos', 
+  parser.add_argument('--texts', type=str,  default='Una ballena que se introduce en el mar y ocurren misterios incomprendidos', 
                       help="Text(s) to query the database. Provide one or more strings.")
 
   # Parse the arguments
@@ -254,7 +254,7 @@ def main():
   else:
       print("CoemDB_instance is already instantiated.")
   # Query the database
-  result = CoemDB_instance.query(texts=args.texts, type_mode=args.type_of_search, top_k=args.top_k)
+  result = CoemDB_instance.query(texts=[args.texts], type_mode=args.type_of_search, top_k=int(args.top_k))
 
   # Print the result
   print(result)
