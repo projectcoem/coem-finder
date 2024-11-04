@@ -1,0 +1,13 @@
+[project]
+name = "coem-finder"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "transformers>=4.44.2",
+    "chromadb>=0.5.17",
+    "numpy>=1.26.4",
+    "pandas>=2.2.2",
+    "torch>=2.5.0",
+]
